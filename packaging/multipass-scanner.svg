@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Multi-pass Scanner icon: a photo on the glass, turned four times -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7fb6e8"/>
+      <stop offset="1" stop-color="#cfe6f7"/>
+    </linearGradient>
+    <marker id="head" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#eb6834"/>
+    </marker>
+  </defs>
+  <!-- scanner glass -->
+  <rect x="6" y="6" width="116" height="116" rx="16" fill="#2b3a4a"/>
+  <rect x="14" y="14" width="100" height="100" rx="8" fill="#e9eef3"/>
+  <!-- the photo -->
+  <g transform="rotate(-8 64 64)">
+    <rect x="36" y="38" width="56" height="52" rx="2" fill="#ffffff" stroke="#b9c2cc" stroke-width="1.5"/>
+    <rect x="41" y="43" width="46" height="36" fill="url(#sky)"/>
+    <path d="M41 79 L55 62 L64 71 L72 60 L87 79 z" fill="#3f8f5a"/>
+    <circle cx="77" cy="51" r="4.5" fill="#f4c542"/>
+  </g>
+  <!-- four quarter turns -->
+  <g fill="none" stroke="#eb6834" stroke-width="5" stroke-linecap="round" marker-end="url(#head)">
+    <path d="M26 46 A40 40 0 0 1 46 26"/>
+    <path d="M82 26 A40 40 0 0 1 102 46"/>
+    <path d="M102 82 A40 40 0 0 1 82 102"/>
+    <path d="M46 102 A40 40 0 0 1 26 82"/>
+  </g>
+</svg>

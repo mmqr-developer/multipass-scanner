@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Version=1.5
+Name=Multi-pass Scanner
+GenericName=Photo Scanner
+Comment=Scan a photo in two to four orientations and combine the scans into one cleaner image
+Exec=/usr/local/bin/multipass-scanner
+TryExec=/usr/local/bin/multipass-scanner
+Icon=multipass-scanner
+Terminal=false
+Categories=Graphics;Scanning;
+Keywords=scan;scanner;photo;epson;
+StartupNotify=true
+StartupWMClass=multipass-scanner

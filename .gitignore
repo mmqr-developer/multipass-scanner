@@ -1,0 +1,12 @@
+# Build products
+/target/
+
+# Output of the scanner test and of --capture
+/scan-test/
+/scan-test.log
+/capture-test/
+
+# Scans do not belong in the repository
+/*.png
+/*.tif
+/*.bmp

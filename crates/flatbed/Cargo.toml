@@ -1,0 +1,42 @@
+[package]
+name = "flatbed"
+version = "0.1.0"
+edition = "2021"
+description = "Flatbed scanner access for Multi-pass Scanner: one interface, one backend per operating system"
+license = "GPL-3.0-or-later"
+publish = false
+
+# This crate has no OpenCV or GUI dependency, so it builds in seconds and can
+# be type-checked for another system (see `make check-macos` and
+# `make check-windows` one level up).
+
+[target.'cfg(target_os = "linux")'.dependencies]
+libloading = "0.8"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+# Apple's ImageCaptureCore through the objc2 family of bindings.  The framework
+# crates are young and say their API may change, so the versions are pinned.
+# Only the parts the backend uses are switched on.
+objc2 = "=0.6.5"
+objc2-foundation = { version = "=0.3.2", default-features = false, features = [
+    "std", "NSArray", "NSData", "NSEnumerator", "NSError", "NSGeometry", "NSIndexSet", "NSObjCRuntime",
+    "NSRange", "NSString", "NSURL", "NSValue", "objc2-core-foundation",
+] }
+objc2-core-foundation = { version = "=0.3.2", default-features = false, features = [
+    "std", "CFCGTypes", "CFDate", "CFRunLoop",
+] }
+objc2-image-capture-core = { version = "=0.3.2", default-features = false, features = [
+    "std", "ICDevice", "ICDeviceBrowser", "ICScannerBandData", "ICScannerDevice", "ICScannerFunctionalUnits",
+    "ImageCaptureConstants",
+] }
+dispatch2 = { version = "=0.3.1", default-features = false, features = ["std"] }
+
+[target.'cfg(target_os = "windows")'.dependencies]
+# Windows Image Acquisition through Microsoft's own bindings.  Only the parts
+# the backend uses are switched on.
+windows = { version = "0.62", features = [
+    "Win32_Devices_ImageAcquisition", "Win32_Foundation", "Win32_System_Com", "Win32_System_Com_StructuredStorage",
+    "Win32_System_Variant", "Win32_UI_Shell",
+] }
+# the `implement` macro in `windows` names this crate in the code it writes
+windows-core = "0.62"
